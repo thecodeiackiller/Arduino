@@ -23,20 +23,21 @@ void loop() {
 
   }
   userInputColor = Serial.readString();
-  Serial.println(response +  userInputColor);
-  if(userInputColor == "Green")
+  userInputColor.trim(); // Remove any leading/trailing whitespace
+  userInputColor.toLowerCase(); // Convert to lowercase for case-insensitive comparison
+  if(userInputColor == "green")
   {
     digitalWrite(greenPin, HIGH);
     digitalWrite(redPin, LOW);
     digitalWrite(bluePin, LOW);
   }
-  else if(userInputColor == "Blue")
+  else if(userInputColor == "blue")
   {
     digitalWrite(bluePin, HIGH);
     digitalWrite(greenPin, LOW);
     digitalWrite(redPin, LOW);
   }
-  else if(userInputColor == "Red")
+  else if(userInputColor == "red")
   {
     digitalWrite(redPin, HIGH);
     digitalWrite(greenPin, LOW);
